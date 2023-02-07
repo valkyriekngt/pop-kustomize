@@ -7,7 +7,7 @@ build:
 #  local: 
 #    push: false
   artifacts:
-  - image: pop-stats:latest
+  - image: pop-stats
     context: app
     docker:
       dockerfile: Dockerfile
