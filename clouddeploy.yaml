@@ -1,4 +1,3 @@
-# replace "project-id-here" in the three targets below with your actual project(s)
 apiVersion: deploy.cloud.google.com/v1
 kind: DeliveryPipeline
 metadata:
