@@ -1,0 +1,28 @@
+ATTESTOR_PROJECT_ID=dvatest-generalinfra
+ATTESTATION_PROJECT_ID=dvatest-generalinfra
+ATTESTOR_NAME=authorize-gke
+IMAGE_PATH=us-central1-docker.pkg.dev/dvatest-generalinfra/pop-stats/pop-stats
+IMAGE_DIGEST=sha256:8b245cc2b13a6d89a4bfa6795874d953dbae34bb9e4407eccce7e89b80cbc5e8
+IMAGE_TO_ATTEST="${IMAGE_PATH}@${IMAGE_DIGEST}"
+KMS_KEY_PROJECT_ID=dvatest-generalinfra
+KMS_KEY_LOCATION=global
+KMS_KEYRING_NAME=gke-test-binauth
+KMS_KEY_NAME=binauth-test
+KMS_KEY_VERSION=1
+
+
+
+
+
+
+
+gcloud beta container binauthz attestations sign-and-create \
+    --project="${ATTESTATION_PROJECT_ID}" \
+    --artifact-url="${IMAGE_TO_ATTEST}" \
+    --attestor="${ATTESTOR_NAME}" \
+    --attestor-project="${ATTESTOR_PROJECT_ID}" \
+    --keyversion-project="${KMS_KEY_PROJECT_ID}" \
+    --keyversion-location="${KMS_KEY_LOCATION}" \
+    --keyversion-keyring="${KMS_KEYRING_NAME}" \
+    --keyversion-key="${KMS_KEY_NAME}" \
+    --keyversion="${KMS_KEY_VERSION}"
