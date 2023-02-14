@@ -11,7 +11,7 @@ KMS_KEY_NAME=binauth-test
 KMS_KEY_VERSION=1
 
 
-
+this is for testing purpose
 
 
 
