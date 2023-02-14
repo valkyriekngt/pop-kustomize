@@ -18,7 +18,7 @@ steps:
     name: 'gcr.io/${PROJECT_ID}/binauthz-attestation:latest'
     args:
     - '--artifact-url'
-    - 'us-central1-docker.pkg.dev/$PROJECT_ID/pop-stats/pop-stats@${COMMIT_SHA}'
+    - 'us-central1-docker.pkg.dev/$PROJECT_ID/pop-stats/pop-stats:${COMMIT_SHA}'
     - '--attestor'
     - 'projects/dvatest-generalinfra/attestors/authorize-gke'
     - '--keyversion'
