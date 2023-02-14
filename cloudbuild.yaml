@@ -14,15 +14,15 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/pop-stats/pop-stats:${COMMIT_SHA}']
   # Sign with Binauth
-  - id: 'create-attestation'
-    name: 'gcr.io/${PROJECT_ID}/binauthz-attestation:latest'
-    args:
-    - '--artifact-url'
-    - '$IMAGE_AND_DIGEST'
-    - '--attestor'
-    - 'projects/dvatest-generalinfra/attestors/authorize-gke'
-    - '--keyversion'
-    - 'projects/$PROJECT_ID/locations/global/keyRings/gke-test-binauth/cryptoKeys/binaryauthz/cryptoKeyVersions/1'
+  #- id: 'create-attestation'
+  #  name: 'gcr.io/${PROJECT_ID}/binauthz-attestation:latest'
+  #  args:
+  #  - '--artifact-url'
+  #  - '${IMAGE_AND_DIGEST}'
+  #  - '--attestor'
+  #  - 'projects/dvatest-generalinfra/attestors/authorize-gke'
+  #  - '--keyversion'
+  #  - 'projects/$PROJECT_ID/locations/global/keyRings/gke-test-binauth/cryptoKeys/binaryauthz/cryptoKeyVersions/1'
   # Create release in Google Cloud Deploy
   - name: gcr.io/google.com/cloudsdktool/cloud-sdk
     entrypoint: gcloud
